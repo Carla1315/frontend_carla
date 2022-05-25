@@ -5,16 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+    </style>
 </head>
 <body>
-    <form name="myform" action="#" id="myform">
+    <form name="myform" action="#" id="myform" onsubmit="addTable(); return false">
         <fieldset>
             <legend>General Information</legend>
             <label for="farrival_date">Arrival Date</label>
             <input type="date" id="farrival_date" name="farrival_date" required>
             <br>
             <label for="fnights">Nights</label>
-            <input type="number" name="fnights" id="fnights" required>
+            <input type="number" name="fnights" id="fnights" min="0" required>
             <br>
             <label for="fadults">Adults</label>
             <select name="fadults" id="fadults">
@@ -68,8 +70,8 @@
             <label for="fphone">Phone</label>
             <input type="tel" name="fphone" id="fphone" required>
         </fieldset>
-        <input type="button" onclick="addTable()" value="Submit">
-        <input type="button" onclick="removeAllTable()" value="Clear">
+        <input type="submit" onclick="" value="Submit">
+        <input type="reset" onclick="" value="Clear">
     </form>
     <table border="1" id="mytable">
         <tr>
@@ -92,35 +94,49 @@
         </tr>
         <tbody id="table_body" name="table_body"></tbody>
     </table>
-    <img src="" alt="" width="10px" height="10px">
     <script type="text/javascript">
         function addTable() {
+            const register = {
+                arrival_date: document.getElementById("farrival_date").value,
+                nights: document.getElementById("fnights").value,
+                adults: document.getElementById("fadults").value,
+                children: document.getElementById("fchildren").value,
+                room_type: document.querySelector('input[name="froom_type"]:checked').value,
+                bet_type: document.querySelector('input[name="fbet_type"]:checked').value,
+                smoking: document.getElementById("fsmoking").checked,
+                name: document.getElementById("fname").value,
+                email: document.getElementById("femail").value,
+                phone: document.getElementById("fphone").value
+            }
+
             var table = document.getElementById("table_body");
             var row = table.insertRow(0);
             const idRow =  "row" + document.getElementById("table_body").rows.length;
             row.id = idRow;
-            row.insertCell(0).innerHTML = document.getElementById("farrival_date").value;
-            row.insertCell(1).innerHTML = document.getElementById("fnights").value;
-            row.insertCell(2).innerHTML = document.getElementById("fadults").value;
-            row.insertCell(3).innerHTML = document.getElementById("fchildren").value;
-            row.insertCell(4).innerHTML = document.querySelector('input[name="froom_type"]:checked').value;
-            row.insertCell(5).innerHTML = document.querySelector('input[name="fbet_type"]:checked').value;
-            if(document.getElementById("fsmoking").checked)
+            row.insertCell(0).innerHTML = register.arrival_date;
+            row.insertCell(1).innerHTML = register.nights;
+            row.insertCell(2).innerHTML = register.adults;
+            row.insertCell(3).innerHTML = register.children;
+            row.insertCell(4).innerHTML = register.room_type;
+            row.insertCell(5).innerHTML = register.bet_type;
+            if(register.smoking)
                 row.insertCell(6).innerHTML = '<img src="./images/smock_free.jpg" alt="" width="20px" height="20px">'
             else
                 row.insertCell(6).innerHTML = '<img src="./images/forbide_smock.jpg" alt="" width="20px" height="20px">'
-            row.insertCell(7).innerHTML = document.getElementById("fname").value;
-            row.insertCell(8).innerHTML = document.getElementById("femail").value;
-            row.insertCell(9).innerHTML = document.getElementById("fphone").value;
+            row.insertCell(7).innerHTML = register.name;
+            row.insertCell(8).innerHTML = register.email;
+            row.insertCell(9).innerHTML = register.phone;
             row.insertCell(10).innerHTML = `<a href='#' onclick="removeRow('${idRow}')" >remove</a>`;
+            
+            addLocalStorage(register)
         }
-        function removeAllTable(){
-            var table = document.getElementById("table_body");
-            while(table.hasChildNodes())
-            {
-                table.removeChild(table.firstChild);
-            }
+
+        function addLocalStorage(register){
+            const key_date = (new Date( Date.now() )).toString();
+            const content = JSON.stringify(register);
+            localStorage.setItem(key_date, content);
         }
+        
         function removeRow(idRow){
             var row = document.getElementById(idRow);
 	        row.parentElement.removeChild(row);
