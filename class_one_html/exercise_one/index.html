@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="./images/favicon.png">
+    
+    <title>Exercise 1</title>
+
+</head>
+<style type="text/css">
+    body {
+        margin: 0%;
+        padding: 0%;
+    }
+    header{
+        background-color: orange;
+        width: 100%;
+    }
+    header p{
+        font-size:30px
+    }
+    nav{
+        height: 100%;
+        width: 15%;
+        background-color: greenyellow;
+    }
+    article{
+        height: 100%;
+        width: 45%;
+        background-color: aquamarine;
+    }
+    article p span{
+        font-size:12px; 
+        font-family:'Courier New';
+    }
+    aside{
+        height: 100%;
+        width: 25%;
+        background-color: azure;
+    }
+    aside strong{
+        font-size:30px; 
+    }
+    footer{
+        width: 100%;
+        background-color: orange;
+    }
+</style>
+<body>
+    <header>
+        <p><strong>HTML5 Semantics and Flexbox</strong></p>
+    </header>
+    <nav> 
+        <strong> Navigate </strong>
+        <ul>
+            <li>
+                <Strong> 
+                    <a href="/" target="_blank"> Home </a> 
+                </Strong>
+            </li>
+            <li>
+                <a href="" target="_blank"> Link1 </a>
+            </li>
+            <li>
+                <a href="" target="_blank"> Link2 </a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <article>
+            <section>
+                <h1> About this Page </h1>
+                <p>On this page, I am experimenting with HTML5 semantics and CSS flexbox for a tidy layout.</p>
+                <p>On JS Bin, I purposedly includes the stylesheet on the HTML tab (instead of separate CSS tab) for easier code reading for those with small screen.</p>
+                <p>The <span>main</span> element is placed within a <span>span</span> element along with <span>nav</span> and <span>aside</span>. I don't know if this is right or wrong (let me know?).</p>
+                <p>Navigation links are placed within <span>nav</span>, laid on the left. The <span>main</span> is at the center column (this column). Within it is the main topic (this article).</p>
+                <p>The <span>aside</span> element is at the rightmost of the column, I put supplemental information on it.</p>
+            </section>
+            <section>
+                <h1>Test This Page!</h1>
+                <p>
+                    Do test this page by:
+                    <ul>
+                        <li>Resizing the browser windows; see if flexbox lives up to its reputation.</li>
+                        <li>Run HTML Outliner or HeadingsMap (or similar tool) and see if the outline is good.</li>
+                        <li>Check the markup in this page with W3C Markup validator; see if the markups are good. Paste the URL of this page to the address column. <a href="http://" target="_blank" rel="noopener noreferrer">Click here to try!</a></li>
+                        <li>Check the CSS part of this page too! <a href="http://" target="_blank" rel="noopener noreferrer">Click here!</a></li>
+                    </ul>
+                </p>
+            </section>
+        </article>
+    </main>
+    <aside>
+        <strong>HTML</strong>
+        <p>Stands for HyperText Markup Language. The current standard is HTML5.</p>
+        <strong>CSS</strong>
+        <p>Stands for Cascaded Style Sheet. The current standard is CSS3.</p>
+        <strong>HTML</strong>
+        <p>Short for Uniform Resource Locator. It is a reference (and address) to a resource on the internet.</p>
+    </aside>
+    <footer>
+        <p>Nov, 2015 @ royray</p>
+    </footer>
+</body>
+</html>

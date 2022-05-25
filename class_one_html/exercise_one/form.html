@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="myform" action="#" id="myform">
+        <fieldset>
+            <legend>General Information</legend>
+            <label for="farrival_date">Arrival Date</label>
+            <input type="date" id="farrival_date" name="farrival_date" required>
+            <br>
+            <label for="fnights">Nights</label>
+            <input type="number" name="fnights" id="fnights" required>
+            <br>
+            <label for="fadults">Adults</label>
+            <select name="fadults" id="fadults">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <br>
+            <label for="fchildren">Children</label>
+            <select name="fchildren" id="fchildren">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>Preferences</legend>
+            <fieldset>
+                <label for="froom_type">Room type:</label>
+                <input type="radio" name="froom_type" id="fstandart" value="Standart" checked>
+                <label for="fstandart">Standart</label>
+                <input type="radio" name="froom_type" id="fbusiness" value="Business">
+                <label for="fbusiness">Business</label>
+                <input type="radio" name="froom_type" id="fsuite" value="Suite">
+                <label for="fsuite">Suite</label>
+            </fieldset>
+            <fieldset>
+                <label for="fbet_type">Bed type</label>
+                <input type="radio" name="fbet_type" id="fking" value="King" checked>
+                <label for="fking">King</label>
+                <input type="radio" name="fbet_type" id="fdouble_double" value="Double Double">
+                <label for="fdouble_double">Double Double</label>
+            </fieldset>
+            <input type="checkbox" name="fsmoking" id="fsmoking" value="Smoking">
+            <label for="fsmoking">Smoking</label>
+        </fieldset>
+        <fieldset>
+            <legend>
+                Contact Information
+            </legend>
+            <label for="fname">name</label>
+            <input type="text" id="fname" name="fname" required>
+            <br>
+            <label for="femail">Email</label>
+            <input type="email" name="femail" id="femail" required>
+            <br>
+            <label for="fphone">Phone</label>
+            <input type="tel" name="fphone" id="fphone" required>
+        </fieldset>
+        <input type="button" onclick="addTable()" value="Submit">
+        <input type="button" onclick="removeAllTable()" value="Clear">
+    </form>
+    <table border="1" id="mytable">
+        <tr>
+            <th colspan="4">General Information</th>
+            <th colspan="3">Preferences</th>
+            <th colspan="3">Contact Information</th>
+            <th rowspan="2">Actions</th>
+        </tr>
+        <tr>
+            <th>Arrival date</th>
+            <th>Nights</th>
+            <th>Adults</th>
+            <th>Children</th>
+            <th>Room type</th>
+            <th>Bed type</th>
+            <th>Smooking</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        <tbody id="table_body" name="table_body"></tbody>
+    </table>
+    <img src="" alt="" width="10px" height="10px">
+    <script type="text/javascript">
+        function addTable() {
+            var table = document.getElementById("table_body");
+            var row = table.insertRow(0);
+            const idRow =  "row" + document.getElementById("table_body").rows.length;
+            row.id = idRow;
+            row.insertCell(0).innerHTML = document.getElementById("farrival_date").value;
+            row.insertCell(1).innerHTML = document.getElementById("fnights").value;
+            row.insertCell(2).innerHTML = document.getElementById("fadults").value;
+            row.insertCell(3).innerHTML = document.getElementById("fchildren").value;
+            row.insertCell(4).innerHTML = document.querySelector('input[name="froom_type"]:checked').value;
+            row.insertCell(5).innerHTML = document.querySelector('input[name="fbet_type"]:checked').value;
+            if(document.getElementById("fsmoking").checked)
+                row.insertCell(6).innerHTML = '<img src="./images/smock_free.jpg" alt="" width="20px" height="20px">'
+            else
+                row.insertCell(6).innerHTML = '<img src="./images/forbide_smock.jpg" alt="" width="20px" height="20px">'
+            row.insertCell(7).innerHTML = document.getElementById("fname").value;
+            row.insertCell(8).innerHTML = document.getElementById("femail").value;
+            row.insertCell(9).innerHTML = document.getElementById("fphone").value;
+            row.insertCell(10).innerHTML = `<a href='#' onclick="removeRow('${idRow}')" >remove</a>`;
+        }
+        function removeAllTable(){
+            var table = document.getElementById("table_body");
+            while(table.hasChildNodes())
+            {
+                table.removeChild(table.firstChild);
+            }
+        }
+        function removeRow(idRow){
+            var row = document.getElementById(idRow);
+	        row.parentElement.removeChild(row);
+        }
+    </script>
+</body>
+</html>
