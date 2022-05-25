@@ -1,0 +1,29 @@
+
+.silly-list::first-letter {
+    color: red;
+}
+
+.silly-list li {
+    padding: 13px;
+}
+
+li:last-child {
+    padding: 0px;
+}
+
+.silly-list > li {
+    background-color: blue;
+    width: auto;
+}
+
+li:nth-child(3n) {
+    list-style-type: square;
+}
+
+li:nth-child(5) {
+    color: orange;
+}
+
+.silly-list li:nth-child(6):hover ~ li:nth-child(7) {
+    background-color: aquamarine;
+}

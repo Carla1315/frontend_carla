@@ -1,0 +1,15 @@
+.not-visible {
+    display: none;
+}
+  /*1. change the color of all the tags to gray*/
+* {
+    color: gray;
+}
+  /*2. Make paragraph2 bold*/
+.paragraph {
+}
+  /*3. Change the background color to blue for all the odd list items and green for the evens*/
+  /* 4. display the default value of not visible class when you hover over visible */
+  /* 5. Display the word "After" in bold after each list item*/
+  
+  /*6. change the color of all the tags to purple (except for all that have the class bar)*/
