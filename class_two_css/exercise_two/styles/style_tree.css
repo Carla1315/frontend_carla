@@ -1,0 +1,57 @@
+.container {
+    background-color: orange;
+    padding: 10px;
+    width: 260px;
+    height: 260px;
+}
+.triangle-min {
+    width: 0; 
+    height: 0;     
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 50px solid green;
+    margin: 0 auto;
+}
+
+/*.triangle-min:before
+{
+    width: 40px;
+    height: 49px;
+    border-radius:0 0px 50px 0;
+    background-color:orange;    
+    display:inline-block;
+    vertical-align: middle;
+    margin-left: -40px;
+    content: '';
+}*/
+
+.triangle {
+    width: 0; 
+    height: 0; 
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    border-bottom: 80px solid green;
+    margin: 0 auto;
+    margin-top: -20px;
+}  
+.triangle:nth-child(2) {
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    border-bottom: 80px solid green;
+}
+.triangle:nth-child(3) {
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 80px solid green;
+}
+.triangle:nth-child(4) {
+    border-left: 130px solid transparent;
+    border-right: 130px solid transparent;
+    border-bottom: 80px solid green;
+}
+.trunk {
+    margin: 0 auto;
+    height: 35px;
+    width: 30px;
+    background-color: rgb(136, 85, 19);
+}
