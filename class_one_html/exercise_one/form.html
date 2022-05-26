@@ -108,10 +108,35 @@
                 email: document.getElementById("femail").value,
                 phone: document.getElementById("fphone").value
             }
+            const idRow = addLocalStorage(register)
+            addRows(register, idRow)
+        }
 
+        function addLocalStorage(register){
+            const key_date = (new Date( Date.now() )).valueOf();
+            const content = JSON.stringify(register);
+            localStorage.setItem(key_date, content);
+            return key_date;
+        }
+
+        function getLocalStorage(){
+            keys = Object.keys(localStorage),
+            i = keys.length;
+            while ( i-- ) {
+                var register = localStorage.getItem(keys[i]);
+                addRows(JSON.parse(register), keys[i]);
+            }   
+        }
+        
+        function removeRow(idRow){
+            var row = document.getElementById(idRow);
+	        row.parentElement.removeChild(row);
+            localStorage.removeItem(idRow);
+        }
+
+        function addRows(register, idRow) {
             var table = document.getElementById("table_body");
             var row = table.insertRow(0);
-            const idRow =  "row" + document.getElementById("table_body").rows.length;
             row.id = idRow;
             row.insertCell(0).innerHTML = register.arrival_date;
             row.insertCell(1).innerHTML = register.nights;
@@ -127,20 +152,8 @@
             row.insertCell(8).innerHTML = register.email;
             row.insertCell(9).innerHTML = register.phone;
             row.insertCell(10).innerHTML = `<a href='#' onclick="removeRow('${idRow}')" >remove</a>`;
-            
-            addLocalStorage(register)
         }
-
-        function addLocalStorage(register){
-            const key_date = (new Date( Date.now() )).toString();
-            const content = JSON.stringify(register);
-            localStorage.setItem(key_date, content);
-        }
-        
-        function removeRow(idRow){
-            var row = document.getElementById(idRow);
-	        row.parentElement.removeChild(row);
-        }
+        getLocalStorage()
     </script>
 </body>
 </html>
