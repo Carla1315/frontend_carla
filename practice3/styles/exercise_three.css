@@ -56,12 +56,15 @@ header {
   left: 0;
   bottom: 0;
 }
+.sidebar nav ul {
+  position: relative;
+  right: 31px;
+}
 .sidebar nav ul li {
   display: flex;
   align-items: center;
   list-style:none;
   width: max-content;
-  margin-left: -30px;
   height: 50px;
 }
 
