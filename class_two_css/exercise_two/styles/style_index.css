@@ -3,17 +3,14 @@
     color: red;
 }
 
-.silly-list li {
+.silly-list li:not(li:last-child) {
     padding: 13px;
 }
 
-li:last-child {
-    padding: 0px;
-}
-
-.silly-list > li {
+.silly-list li {
     background-color: blue;
-    width: auto;
+    width: max-content;
+    height: min-content;
 }
 
 li:nth-child(3n) {
