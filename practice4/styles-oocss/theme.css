@@ -1,0 +1,67 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+body {
+    background: #76b852; /* fallback for old browsers */
+    background: rgb(141,194,111);
+    background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);
+}
+.container {
+}  
+.info {
+}
+.info .title {
+    color: #1a1a1a;
+}
+.info .text-muted {
+    color: #4d4d4d;
+}
+.text-muted .link {
+    color: #000000;
+}
+.text-muted .fa {
+    color: #EF3B3A;
+}
+#login-page {
+}
+#login-page > .form {
+    background: #FFFFFF;
+}
+.is-hidden {
+}
+.form .textbox {
+    background: #f2f2f2;
+}
+.form .button {
+}
+.button-green {
+    background: #4CAF50;
+    color: #FFFFFF;
+}
+.button-blue {
+    background: #101A57;
+    color: #FFFFFF;
+}
+
+.button-green:hover, 
+.button-green:active, 
+.button-green:focus,
+.button[class~=hover-green]:hover,
+.button[class~=active-green]:active,
+.button[class~=focus-green]:focus {
+  background: #43A047;
+}
+
+.button-blue:hover, 
+.button-blue:active, 
+.button-blue:focus,
+.button[class~=hover-blue]:hover,
+.button[class~=active-blue]:active,
+.button[class~=focus-blue]:focus {}
+
+.form .message {
+    color: #b3b3b3;
+}
+.message .link {
+    color: #4CAF50;
+    text-decoration: none;
+}
