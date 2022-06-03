@@ -1,9 +1,10 @@
 @import "./theme.scss";
 .wool-back {
+    margin: 0;
     width: 350px; 
     height: 123px;
     position: relative;
-    left: 380px;
+    margin-top: 100px;
     .wool-back__pile {
         width: 350px; 
         height: 123px;
@@ -34,8 +35,8 @@
 }
 .wool-top {
     position: relative;
-    right: 355px;
-    top: 20px;
+    left: 60px;
+    bottom: 895px;
     width: 0px;
     height: 0px;
     .wool-top__line {
@@ -54,8 +55,8 @@
 }
 .wool-bottom {
     position: relative;
-    bottom: 10px;
-    right: 220px;
+    bottom: 620px;
+    right: 97px;
     display: flex;
     flex-direction: column;
     justify-content: end;

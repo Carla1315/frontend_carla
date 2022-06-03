@@ -2,6 +2,9 @@
 .person {
     width: 250px;
     height: 500px;
+    position: relative;
+    bottom: 300px;
+    margin: 0;
 }  
 .person__hat {
     width: 200px;
@@ -458,6 +461,7 @@
         background-color: $person-dress-color;
         border-radius: 50px 50px 10px 10px;
         transform: rotate(15deg) skew(10deg, -29deg);
+        box-shadow: $person-dress-transparent-color 0px 10px 1px 0px;
     }
     .person__skirt-front__part-2 {
         position: relative;

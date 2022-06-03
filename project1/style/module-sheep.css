@@ -5,7 +5,7 @@ body {
 .sheep-container {
   position: fixed;
   left: 50px;
-  bottom: 330px;
+  bottom: 350px;
   width: 150px;
   height: 150px;
   animation: jump 5s linear infinite;
@@ -69,8 +69,10 @@ body {
   height: 15px;
   border-radius: 0 50%/0 100%;
   background: BurlyWood;
-  border: 3px solid rgb(158, 132, 97);
+  border: 3px solid transparent;
   transform: rotate(30deg);
+  box-shadow: rgb(158, 132, 97) 1.95px 1.95px 2.6px;
+  animation: sheep-leg-left 500ms linear infinite alternate;
 }
 
 .sheep__body {
@@ -102,6 +104,7 @@ body {
 }
 .sheep__legs .sheep__legs-right {
   position: relative;
+  bottom: 3px;
   display: flex;
   width: 20px;
   height: 30px;

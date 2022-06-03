@@ -2,7 +2,7 @@
 .sheep-container {
     position: fixed;
     left: 50px;
-    bottom: 330px;
+    bottom: 350px;
     width: 150px;
     height: 150px;
     animation: jump 5s linear infinite;
@@ -60,8 +60,10 @@
         height: 15px;
         border-radius: 0 50% / 0 100%;
         background: $sheep-skin-color;
-        border: 3px solid $sheep-skin-color-shadow; 
+        border: 3px solid transparent; 
         transform: rotate(30deg);
+        box-shadow: $sheep-skin-color-shadow 1.95px 1.95px 2.6px;
+        animation: sheep-leg-left 500ms linear infinite alternate;
     }
 }
 .sheep__body {
@@ -91,6 +93,7 @@
     }
     .sheep__legs-right {
         position: relative;
+        bottom: 3px;
         display: flex;
         width: 20px;
         height: 30px;
