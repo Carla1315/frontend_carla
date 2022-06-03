@@ -1,0 +1,98 @@
+body {
+  background-color: darkcyan;
+}
+
+.spindle {
+  position: relative;
+  right: 352px;
+  top: 202px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: spindle-movement 350ms linear infinite;
+}
+
+.spindle__stick {
+  width: 10px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: BurlyWood;
+}
+
+.spindle__spinning {
+  position: relative;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+}
+
+.spindle__spinning__line {
+  display: flex;
+  height: 5px;
+  padding: 2px;
+  border-radius: 15%;
+  background-color: blanchedalmond;
+}
+.spindle__spinning__line[class~=spindle__spinning__line--wood] {
+  background-color: BurlyWood;
+}
+
+.spindle__spinning__line:nth-child(1) {
+  width: 30px;
+}
+
+.spindle__spinning__line:nth-child(2) {
+  width: 10px;
+}
+
+.spindle__spinning__line:nth-child(3) {
+  width: 15px;
+}
+
+.spindle__spinning__line:nth-child(4) {
+  width: 20px;
+}
+
+.spindle__spinning__line:nth-child(5) {
+  width: 25px;
+}
+
+.spindle__spinning__line:nth-child(6) {
+  width: 30px;
+}
+
+.spindle__spinning__line:nth-child(7) {
+  width: 35px;
+}
+
+.spindle__spinning__line:nth-child(8) {
+  width: 40px;
+}
+
+.spindle__spinning__line:nth-child(9) {
+  width: 60px;
+}
+
+.spindle__spinning__line:nth-child(10) {
+  width: 10px;
+}
+
+.horizontal-twist {
+  width: 100%;
+  height: 5px;
+  opacity: 0.8;
+}
+.horizontal-twist[class~=horizontal-twist--wool] {
+  background: linear-gradient(to right, blanchedalmond, blanchedalmond 50%, white 50%, white);
+  background-size: 20px 100%;
+  animation: spinning-movement 170ms linear infinite;
+}
+.horizontal-twist[class~=horizontal-twist--wood] {
+  background: linear-gradient(to right, BurlyWood, BurlyWood 50%, #efdcc3 50%, #efdcc3);
+  background-size: 20px 100%;
+  animation: spinning-movement-wood 160ms linear infinite;
+}
+
+/*# sourceMappingURL=module-spindle.css.map */

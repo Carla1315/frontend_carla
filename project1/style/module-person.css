@@ -1,0 +1,486 @@
+body {
+  background-color: darkcyan;
+}
+
+.person {
+  width: 250px;
+  height: 500px;
+}
+
+.person__hat {
+  width: 200px;
+  height: 150px;
+  background-color: blanchedalmond;
+  border-radius: 50%;
+  animation: move-right 5s linear infinite;
+}
+
+.person__head {
+  width: 200px;
+  height: 160px;
+}
+.person__head .person__hair-back {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  bottom: 30px;
+  margin-left: 45px;
+  width: 110px;
+  animation: move-hair-back 5000ms linear infinite;
+}
+.person__head .person__hair-back .person__hair-back__braid-left {
+  width: 20px;
+  height: 50px;
+}
+.person__head .person__hair-back .person__hair-back__braid-right {
+  width: 20px;
+  height: 50px;
+}
+.person__head .person__face {
+  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 115px;
+  height: 115px;
+  border-radius: 1000px;
+  position: relative;
+  bottom: 150px;
+  margin: 0px 35px 0px 0px;
+  background: linear-gradient(100deg, #fc9f6f 70%, #fa925e 50%);
+}
+.person__head .person__eyes {
+  position: relative;
+  top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 85px;
+  animation: move-down 5s linear infinite;
+}
+.person__head .person__eye {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: max-content;
+  height: 55px;
+}
+.person__head .person__eyebrown {
+  display: inline-block;
+  width: 30px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0px -3px 0px black;
+}
+.person__head .person__eyelash {
+  display: inline-block;
+  width: 25px;
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: 2px -5px 0 black;
+  animation: close-eyelash 5s linear infinite;
+}
+.person__head .person__eyelash[class~=person__eyelash--right] {
+  box-shadow: -2px -5px 0 black;
+}
+.person__head .person__irish {
+  position: relative;
+  bottom: 30px;
+  left: 1px;
+  width: 17px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: black;
+  animation: close-eye-irish 5s linear infinite;
+}
+.person__head .person__irish[class~=person__irish--right] {
+  margin-right: 5px;
+}
+.person__head .person__nose {
+  position: relative;
+  right: 30px;
+  width: 10px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #fc9f6f;
+  box-shadow: 1px 1px 1px 1px #db7650;
+  animation: move-down 5s linear infinite;
+}
+.person__head .person__mouth {
+  position: relative;
+  bottom: 5px;
+  right: 25px;
+  width: 30px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 0px 5px 0 #d9534f;
+  animation: move-down 5s linear infinite;
+}
+.person__head .person__bangs {
+  display: flex;
+  justify-content: space-between;
+  width: 140px;
+  height: 150px;
+  padding: 0px;
+  position: relative;
+  bottom: 300px;
+  left: 35px;
+}
+.person__head .person__bangs .person__bang-left {
+  width: 80px;
+  height: 140px;
+  animation: shrink-bang 5s linear infinite;
+}
+.person__head .person__bangs .person__bang-right {
+  width: 40px;
+  height: 110px;
+  animation: grow-bang 5s linear infinite;
+}
+.person__head .person__bangs .person__bang {
+  width: 70%;
+  height: 80%;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 100px 0px 100px 10px;
+  transform: rotate(40deg);
+}
+.person__head .person__bangs .person__bang[class~=person__bang--right] {
+  transform: rotate(-45deg);
+  border-radius: 0px 100px 10px 100px;
+}
+.person__head .person__strands {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  height: 150px;
+  padding: 0px;
+  position: relative;
+  bottom: 390px;
+  left: 35px;
+}
+.person__head .person__strands .person__strand-right {
+  margin-top: 20px;
+  width: 40px;
+  height: 50px;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 0px 0px 40px 60px;
+  padding: 0px;
+  animation: shrink-strand 5s linear infinite;
+}
+.person__head .person__strands .person__strand-left {
+  margin-top: 0px;
+  width: 24px;
+  height: 50px;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 0px 0px 60px 0px;
+  padding: 0px;
+  animation: grow-strand 5s linear infinite;
+}
+
+.person__braid__component {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  background-color: black;
+}
+
+.person__neck {
+  height: 15px;
+  width: 10px;
+  position: relative;
+  left: 102px;
+  background-color: #fc9f6f;
+}
+
+.person__trunck {
+  position: relative;
+  bottom: 140px;
+  display: inline-block;
+  width: 220px;
+  height: 100px;
+}
+
+.person__chest {
+  position: relative;
+  bottom: 125px;
+  left: 72px;
+  width: 70px;
+  height: 100px;
+  border-radius: 20px 20px 40px 40px;
+  background: linear-gradient(90deg, black 55%, rgb(43, 43, 43) 50%);
+}
+
+.person__upper-extremity-right {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  height: 130px;
+  margin-left: 15px;
+  position: relative;
+  top: 10px;
+}
+.person__upper-extremity-right .person__arm-right {
+  margin-left: 13px;
+  width: 0;
+  height: 0;
+  border-bottom: 70px solid black;
+  border-right: 15px solid black;
+  border-left: 30px solid transparent;
+  transform: skew(-20deg);
+}
+.person__upper-extremity-right .person__elbow-right {
+  position: relative;
+  bottom: 1px;
+  width: 46px;
+  height: 40px;
+  border-radius: 0px 0px 50px 20px;
+  background-color: black;
+}
+.person__upper-extremity-right .person__hand-right {
+  position: relative;
+  bottom: 25px;
+  left: 3px;
+  width: 45px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fc9f6f;
+  transform: rotate(-30deg);
+  z-index: 99999;
+}
+
+.person__upper-extremity-left {
+  position: relative;
+  bottom: 230px;
+  left: 130px;
+  transform-origin: top left;
+  animation: upper-extremity-left-move 300ms linear infinite alternate;
+}
+.person__upper-extremity-left .person__arm-left {
+  width: 25px;
+  height: 110px;
+  margin-left: 10px;
+  border-radius: 50px;
+  background-color: rgb(29, 29, 29);
+  transform: rotate(-30deg);
+}
+.person__upper-extremity-left .person__forearm-left {
+  width: 25px;
+  height: 70px;
+  border-radius: 50px;
+  background: linear-gradient(80deg, rgb(29, 29, 29) 50%, rgb(43, 43, 43) 50%);
+}
+.person__upper-extremity-left .person__hand-left {
+  position: relative;
+  bottom: 80px;
+  right: 5px;
+  width: 35px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fc9f6f;
+  transform: rotate(0deg);
+  animation: hand-left-move 300ms linear infinite alternate;
+}
+.person__upper-extremity-left .person__forearm-container {
+  width: 20px;
+  height: 70px;
+  position: relative;
+  left: 30px;
+  bottom: 8px;
+  animation: forearm-left-move 300ms linear infinite alternate;
+}
+
+.person__upper-extremity-left:last-child {
+  bottom: 378px;
+  z-index: 99999;
+}
+
+.person__cloak {
+  position: relative;
+  bottom: 345px;
+  left: 22px;
+  width: 170px;
+  height: 80px;
+}
+.person__cloak .person__cloak__top {
+  margin: 0 auto;
+  width: 20px;
+  height: 0px;
+  border-right: 35px solid transparent;
+  border-left: 35px solid transparent;
+  border-bottom: 13px solid FireBrick;
+}
+.person__cloak .person__cloak__middle {
+  position: relative;
+  bottom: 91px;
+  left: 40px;
+  width: 0px;
+  height: 30px;
+  border-left: 45px solid rgb(138, 22, 22);
+  border-right: 45px solid FireBrick;
+  border-bottom: 35px solid transparent;
+}
+.person__cloak .person__cloak__bottom-right {
+  position: relative;
+  top: 2px;
+  left: 2px;
+  width: 0;
+  height: 0;
+  border-left: 45px solid rgb(138, 22, 22);
+  border-top: 45px solid transparent;
+  border-bottom: 45px solid transparent;
+  transform: rotate(45deg);
+}
+.person__cloak .person__cloak__bottom-left {
+  position: relative;
+  bottom: 152px;
+  left: 122px;
+  width: 0;
+  height: 0;
+  border-left: 45px solid FireBrick;
+  border-top: 45px solid transparent;
+  border-bottom: 45px solid transparent;
+  transform: rotate(135deg);
+}
+.person__cloak .person__cloak__ornaments {
+  position: relative;
+  bottom: 221px;
+  right: 16px;
+  width: 200px;
+}
+.person__cloak .person__cloak__ornament-brooch {
+  background: linear-gradient(to right, rgb(204, 177, 23) 50%, gold 50%);
+  width: 10px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  bottom: 35px;
+  left: 97px;
+}
+.person__cloak .person__cloak__ornament {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s linear, opacity 0.3s cubic-bezier(0, 0.55, 1, 0.33);
+  position: relative;
+  bottom: 20px;
+  width: 45px;
+  height: 2px;
+  border: dotted 3px gold;
+  border-color: transparent transparent gold transparent;
+  transform: rotate(0deg);
+}
+.person__cloak .person__cloak__ornament:nth-child(2) {
+  bottom: 15px;
+  left: 40px;
+  width: 60px;
+  height: 2px;
+  transform: rotate(-40deg);
+}
+.person__cloak .person__cloak__ornament:nth-child(3) {
+  bottom: 23px;
+  left: 100px;
+  width: 60px;
+  height: 2px;
+  transform: rotate(40deg);
+}
+.person__cloak .person__cloak__ornament:nth-child(4) {
+  bottom: 10px;
+  left: 155px;
+  width: 40px;
+  height: 2px;
+}
+.person__cloak .person__cloak__ornament-brooch:hover ~ .person__cloak__ornament {
+  visibility: visible;
+  opacity: 1;
+  transition: 5s cubic-bezier(0, 0.55, 1, 0.33);
+}
+
+.person__skirt-back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  bottom: 150px;
+  right: 20px;
+  width: 260px;
+  height: 160px;
+}
+.person__skirt-back .person__skirt-back__top {
+  width: 115px;
+  height: 45px;
+  border-radius: 50px 50px 10px 10px;
+  background-color: black;
+}
+.person__skirt-back .person__skirt-back__bottom {
+  position: relative;
+  bottom: 15px;
+  margin-left: 10px;
+  width: 115px;
+  height: max-content;
+  border-bottom: 100px solid black;
+  border-right: 100px solid transparent;
+  border-left: 100px solid transparent;
+  border-radius: 0px 0px 150px 150px;
+}
+
+.person__leg-right {
+  position: relative;
+  bottom: 250px;
+  margin-left: 90px;
+  height: 160px;
+  width: 50px;
+}
+.person__leg-right.person__leg {
+  margin-top: 20px;
+  width: 10px;
+  height: 0px;
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+  border-top: 130px solid #fc9f6f;
+}
+
+.person__leg-left {
+  position: relative;
+  bottom: 400px;
+  margin-left: 128px;
+  height: 120px;
+  display: flex;
+  width: 170px;
+}
+.person__leg-left.person__leg {
+  margin-top: 0px;
+  width: 10px;
+  height: 0px;
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+  border-top: 120px solid #fc9f6f;
+  transform: skew(-25deg, -10deg);
+}
+
+.person__skirt-front {
+  position: relative;
+  bottom: 554px;
+  left: 90px;
+  display: flex;
+  width: 150px;
+}
+.person__skirt-front .person__skirt-front__part-1 {
+  width: 110px;
+  height: 80px;
+  background-color: black;
+  border-radius: 50px 50px 10px 10px;
+  transform: rotate(15deg) skew(10deg, -29deg);
+}
+.person__skirt-front .person__skirt-front__part-2 {
+  position: relative;
+  bottom: 42px;
+  right: 40px;
+  width: 10px;
+  height: 70px;
+  background-color: black;
+  transform: rotate(-60deg);
+}
+
+/*# sourceMappingURL=module-person.css.map */

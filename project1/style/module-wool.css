@@ -1,0 +1,80 @@
+body {
+  background-color: darkcyan;
+}
+
+.wool-back {
+  width: 350px;
+  height: 123px;
+  position: relative;
+  left: 380px;
+}
+.wool-back .wool-back__pile {
+  width: 350px;
+  height: 123px;
+  background: blanchedalmond;
+  border-radius: 100px;
+  animation: shrink-and-grow 10000ms linear infinite;
+}
+.wool-back .wool-back__pile:after, .wool-back .wool-back__pile:before {
+  content: "";
+  position: absolute;
+  background: blanchedalmond;
+  z-index: -1;
+}
+.wool-back .wool-back__pile:after {
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: 50px;
+  border-radius: 100px;
+}
+.wool-back .wool-back__pile:before {
+  width: 200px;
+  height: 200px;
+  top: -90px;
+  right: 50px;
+  border-radius: 200px;
+}
+
+.wool-top {
+  position: relative;
+  right: 355px;
+  top: 20px;
+  width: 0px;
+  height: 0px;
+}
+.wool-top .wool-top__line {
+  width: 170px;
+  height: 2px;
+  background-color: blanchedalmond;
+  transform: rotate(-25deg);
+  transform-origin: bottom left;
+  animation: wool-top 300ms linear infinite alternate;
+}
+.wool-top .wool-top__line:nth-child(1) {
+  width: 170px;
+  height: 2px;
+  animation-delay: 0.5s;
+}
+
+.wool-bottom {
+  position: relative;
+  bottom: 10px;
+  right: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  height: 110px;
+  width: 150;
+}
+.wool-bottom .wool-bottom__line {
+  width: 100px;
+  height: 5px;
+  background-color: blanchedalmond;
+  transform: rotate(90deg);
+  transform-origin: top left;
+  animation: swing 350ms linear infinite;
+}
+
+/*# sourceMappingURL=module-wool.css.map */

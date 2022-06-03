@@ -1,0 +1,244 @@
+body {
+  background-color: darkcyan;
+}
+
+@keyframes spinning-movement {
+  100% {
+    background: linear-gradient(to right, white 50%, white, blanchedalmond, blanchedalmond 50%);
+    background-size: 20px 100%;
+  }
+}
+@keyframes spinning-movement-wood {
+  100% {
+    background: linear-gradient(to right, #efdcc3 50%, #efdcc3, BurlyWood, BurlyWood 50%);
+    background-size: 20px 100%;
+  }
+}
+@keyframes spindle-movement {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes swing {
+  0% {
+    transform: rotate(90deg);
+  }
+  25% {
+    transform: rotate(80deg);
+  }
+  75% {
+    transform: rotate(100deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+@keyframes shrink-and-grow {
+  0% {
+    transform: scale(1) translate(0px, 0px);
+  }
+  80% {
+    transform: scale(0.8) translate(0px, 15px);
+  }
+  100% {
+    transform: scale(1) translate(0px, 0px);
+  }
+}
+@keyframes close-eyelash {
+  0% {
+    transform: scaleY(1) translate(0px, 0px);
+  }
+  50% {
+    transform: scaleY(0.95) translate(-1px, 3px);
+  }
+  100% {
+    transform: scaleY(1) translate(0px, 0px);
+  }
+}
+@keyframes close-eye-irish {
+  0% {
+    transform: scaleY(1) translate(0px, 0px);
+  }
+  50% {
+    transform: scaleY(1) translate(-5px, 3px);
+  }
+  100% {
+    transform: scaleY(1) translate(0px, 0px);
+  }
+}
+@keyframes move-down {
+  0% {
+    transform: translate(0px, 0px) scaleX(1);
+  }
+  60% {
+    transform: translate(-8px, 3px) scaleX(1.05);
+  }
+  100% {
+    transform: translate(0px, 0px) scaleX(1);
+  }
+}
+@keyframes move-right {
+  0% {
+    transform: translate(0px, 0px) scaleY(1);
+  }
+  60% {
+    transform: translate(5px, -3px) scaleY(0.95);
+  }
+  100% {
+    transform: translate(0px, 0px) scaleY(1);
+  }
+}
+@keyframes grow-bang {
+  0% {
+    transform: scaleX(1) scaleY(1);
+  }
+  60% {
+    transform: scaleX(1.5) scaleY(1) translateX(-5px);
+  }
+  100% {
+    transform: scaleX(1) scaleY(1);
+  }
+}
+@keyframes shrink-bang {
+  0% {
+    transform: scaleX(1) scaleY(1);
+  }
+  60% {
+    transform: scaleX(0.8) scaleY(1) translateX(-5px);
+  }
+  100% {
+    transform: scaleX(1) scaleY(1);
+  }
+}
+@keyframes grow-strand {
+  0% {
+    transform: scaleX(1) scaleY(1) translateX(1px);
+    border-radius: 0px 0px 60px 0px;
+  }
+  60% {
+    transform: scaleX(0.95) scaleY(1.03) translateY(3px) translateX(1px);
+    border-radius: 0px 0px 60px 10px;
+  }
+  100% {
+    transform: scaleX(1) scaleY(1) translateX(1px);
+    border-radius: 0px 0px 60px 0px;
+  }
+}
+@keyframes shrink-strand {
+  0% {
+    transform: scaleX(1) scaleY(1);
+  }
+  60% {
+    transform: scaleX(0.8) scaleY(1) translateY(-5px) translateX(-5px);
+  }
+  100% {
+    transform: scaleX(1) scaleY(1);
+  }
+}
+@keyframes move-hair-back {
+  0% {
+    transform: translateX(0px);
+  }
+  60% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes jump {
+  0% {
+    transform: translateX(-200px) translateY(-70px);
+  }
+  10% {
+    transform: translateX(0%) translateY(0px);
+  }
+  20% {
+    transform: translateX(100%) translateY(-70px);
+  }
+  30% {
+    transform: translateX(200%) translateY(0px);
+  }
+  40% {
+    transform: translateX(350%) translateY(-100px);
+  }
+  50% {
+    transform: translateX(500%) translateY(0px);
+  }
+  60% {
+    transform: translateX(600%) translateY(-70px);
+  }
+  70% {
+    transform: translateX(700%) translateY(0px);
+  }
+  80% {
+    transform: translateX(800%) translateY(-100px);
+  }
+  90% {
+    transform: translateX(900%) translateY(0px);
+  }
+  100% {
+    transform: translateX(1000%) translateY(-70px);
+  }
+}
+@keyframes sheep-leg-left {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+@keyframes sheep-leg-right {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+@keyframes wool-top {
+  0% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(-40deg);
+  }
+}
+@keyframes upper-extremity-left-move {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+@keyframes forearm-left-move {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
+@keyframes hand-left-move {
+  0% {
+    border-radius: 100px 100px 50px 50px;
+    transform: rotate(0deg);
+  }
+  100% {
+    border-radius: 100px 20px 50px 50px;
+    transform: rotate(-55deg);
+  }
+}
+
+/*# sourceMappingURL=animation.css.map */
