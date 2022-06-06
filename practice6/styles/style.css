@@ -1,0 +1,70 @@
+body {
+    background-color: midnightblue;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    width: 100%;
+    height: 50px;
+    background-color: darkblue;
+}
+.aside {
+    float: left;
+    margin: 0px 0px 0px 0px;
+    padding-top: 50px;
+    width: 20%;
+    height: 100vh;
+    background-color: darkblue;
+}
+.movies-category{
+    list-style-type: none;
+}
+.movies-category__item{
+}
+.movies-category__item:hover {
+    transition: 2s;
+    background-color: #647690;
+    color: #7bd828;
+}
+.movies {
+    margin-top: 50px;
+    float: left;
+    width: 80%;
+    height: 200px;
+    background-color: blue;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.movies__item { 
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    height: 300px;
+}
+.movies__img { 
+    width: 80%;
+    height: 250px;
+    background-color: aliceblue;
+}
+.movies__img:hover {
+    transition: 5s;
+    opacity: 0.8;
+}
+.movie {
+    float: left;
+    width: 100%;
+    height: 200px;
+    background-color: blue;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
