@@ -12,12 +12,12 @@ function fillMovies(){
                             {
                                 id: element.id, 
                                 title: element.title, 
-                                img: element.poster_path, 
+                                img: `https://image.tmdb.org/t/p/w342/${element.poster_path}`, 
                                 genre: element.genre_ids
                             });
-                        moviesSection.innerHTML += `<div class="movies__item">
-                            <a class="movies__link" href="#" onclick="showMovie(${element.id})">
-                                <img src="${element.poster_path}" alt="" class="movies__img"><br>
+                        moviesSection.innerHTML += `<div class="movies__item" onclick="showMovie(${element.id})>
+                            <a class="movies__link" href="#"">
+                                <img src="https://image.tmdb.org/t/p/w342/${element.poster_path}" alt="" class="movies__img"><br>
                                 <span class="movies__title">${element.title}</span>
                             </a>
                         </div>`
@@ -33,7 +33,7 @@ function fillGenre() {
         data.genres.forEach(element => {
             allGenre.push({id: element.id, name: element.name})
             genreSection.innerHTML += `<li class="movies-category__item">
-                                            <a href="#" onclick="filterByGender(${element.id})">
+                                            <a class="movies-category__link" href="#" onclick="filterByGender(${element.id})">
                                                 ${element.name}
                                             </a>
                                         </li>`
@@ -43,23 +43,26 @@ function fillGenre() {
 function showMovies(movies){
     moviesSection.innerHTML = "";
     movies.forEach(element => {
-        moviesSection.innerHTML += `<div class="movies__item">
-            <a class="movies__link" href="#" onclick="showMovie(${element.id})">
-                <img src="${element.img}" alt="" class="movies__img"><br>
-                <span class="movies__title">${element.title}</span>
-            </a>
-        </div>`
+        moviesSection.innerHTML += `<div class="movies__item" onclick="showMovie(${element.id})>
+                                        <a class="movies__link" href="#"">
+                                            <img src="${element.img}" alt="" class="movies__img"><br>
+                                            <span class="movies__title">${element.title}</span>
+                                        </a>
+                                    </div>`
     });
 }
 function search() {
     const keyWords = document.getElementById("searchInput").value;
     const movies = moviesFind = allMovies.filter(
-            element => element.title.includes(keyWords)
-        )
+        element => (element.title).toLowerCase()
+                                  .includes(
+                                        keyWords.toLowerCase()
+                                  )
+    )
     showMovies(movies);
 }
 function showMovie(idMovie) {
-    const movie = allMovies.find(element => element.id = idMovie)
+    const movie = allMovies.find(element => element.id == idMovie)
     moviesSection.innerHTML = "";
     moviesSection.innerHTML = `<div class="movie">
                                     <img src="${movie.img}" alt="" class="movies__img"><br>
@@ -68,7 +71,6 @@ function showMovie(idMovie) {
 }
 function filterByGender(idGender) {
     const movies = allMovies.filter(element => element.genre.some((element) => element === idGender));
-    console.log(movies)
     showMovies(movies);
 }
 fillMovies() 

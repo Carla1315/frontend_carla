@@ -1,9 +1,10 @@
 body {
-    background-color: midnightblue;
+    background-color: #080F28;
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 0px;
     margin: 0px;
+    word-break:break-all;
 }
 .header {
     position: fixed;
@@ -13,7 +14,23 @@ body {
     margin: 0px;
     width: 100%;
     height: 50px;
-    background-color: darkblue;
+    background-color: #141A32;
+}
+.search {
+    display: flex;
+    align-items: center;
+}
+.search__buttom {
+    width: 30px;
+    height: 30px;
+    background-color: #141A32;
+    border: none;
+    color: white;
+    margin-right: 10px;
+}
+.search__buttom:hover {
+    transition: 2s;
+    color: #080fac;
 }
 .aside {
     float: left;
@@ -21,35 +38,45 @@ body {
     padding-top: 50px;
     width: 20%;
     height: 100vh;
-    background-color: darkblue;
+    background-color: #0D132B;
 }
 .movies-category{
     list-style-type: none;
 }
 .movies-category__item{
 }
-.movies-category__item:hover {
+.movies-category__link {
+    text-decoration: none;
+    color: aliceblue;
+}
+.movies-category__item:hover, .movies-category__link:hover{
     transition: 2s;
-    background-color: #647690;
-    color: #7bd828;
+    background-color: #1D2745;
+    color: #6FC323;
 }
 .movies {
-    margin-top: 50px;
+    margin: 50px 0px 0px 0px;
     float: left;
     width: 80%;
-    height: 200px;
-    background-color: blue;
+    height: auto;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
 }
 .movies__item { 
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    margin: 10px;
     padding: 10px;
     font-size: 18px;
     text-align: center;
-    width: 100%;
+    width: 220px;
     height: 300px;
+}
+.movies__item:hover > .movies__title {
+    transition: 2s;
+    color: #080fac;
+}
+.movies__item:hover > .movies__img {
+    transition: 2s;
+    filter: brightness(0.4);
 }
 .movies__link {
     text-decoration: none;
@@ -58,11 +85,6 @@ body {
 .movies__img { 
     width: 80%;
     height: 250px;
-    background-color: aliceblue;
-}
-.movies__img:hover {
-    transition: 5s;
-    opacity: 0.8;
 }
 .movie {
     float: left;
