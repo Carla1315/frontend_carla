@@ -116,9 +116,9 @@ async function search() {
     const title = "Search Results"
     fillMoviesHTML(moviesData, title);
 }
-async function filterByGender(idGender, nameGender) {
+async function filterByGender(idGender, nameGenre) {
     const moviesData = await movies.getMoviesByGenre(idGender).then(response => response);
-    const title = `Gender: ${nameGender}`;
+    const title = `Genre: ${nameGenre}`;
     fillMoviesHTML(moviesData, title);
 }
 async function showMovie(idMovie) {
