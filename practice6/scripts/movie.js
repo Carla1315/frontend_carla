@@ -1,9 +1,9 @@
 const genreSection = document.getElementById("moviesCategory");
 const titleSection = document.getElementById("title");
-const moviesSection = document.getElementById("movies");
-const imgMovieURL = "https://image.tmdb.org/t/p/w342";
-const imgMovieURL_original = "https://image.tmdb.org/t/p/original";
-class Movies {
+const multimediaSection = document.getElementById("movies");
+const imgMultimediaURL = "https://image.tmdb.org/t/p/w342";
+const imgMultimediaURL_original = "https://image.tmdb.org/t/p/original";
+class Multimedia  {
     apiKey = "6b5da68eda25b9540dbff8d1f8ff455f";
     URLbase = "https://api.themoviedb.org/3";
     language = "language=en-US";
@@ -15,8 +15,14 @@ class Movies {
         const data = await response.json();
         return data.results;
     }
-    getGenre = async () => {
+    getGenreMovies = async () => {
         const url = `${this.URLbase}/genre/movie/list?api_key=${this.apiKey}&${this.language}&${this.adult}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        return data.genres;
+    }
+    getGenreSeries = async () => {
+        const url = `${this.URLbase}/genre/tv/list?api_key=${this.apiKey}&${this.language}&${this.adult}`;
         const response = await fetch(url);
         const data = await response.json();
         return data.genres;
@@ -27,31 +33,59 @@ class Movies {
         const data = await response.json();
         return data.results;
     }
-    async getMovieById(idMovie){
-        const url = `${this.URLbase}/movie/${idMovie}?api_key=${this.apiKey}&${this.language}&${this.adult}`;
-        const response = await fetch(url);
-        const data = await response.json();
-        console.log(data);
-        return data;
-    }
-    searchMovieByName = async (keyWords) => {
-        const url = `${this.URLbase}/search/movie?api_key=${this.apiKey}&${this.language}&query=${keyWords}&page=1&${this.adult}`;
+    async getSeriesByGenre(genre){
+        const url = `${this.URLbase}/discover/tv?api_key=${this.apiKey}&${this.language}&sort_by=popularity.desc&include_video=false&page=1&with_genres=${genre}&language=en-US&${this.adult}`;
         const response = await fetch(url);
         const data = await response.json();
         return data.results;
     }
+    async getMovieById(idMovie){
+        const url = `${this.URLbase}/movie/${idMovie}?api_key=${this.apiKey}&${this.language}&${this.adult}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    }
+    async getSerieById(idMovie){
+        const url = `${this.URLbase}/tv/${idMovie}?api_key=${this.apiKey}&${this.language}&${this.adult}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    }
+    searchAllByName = async (keyWords) => {
+        const url = `${this.URLbase}/search/multi?api_key=${this.apiKey}&${this.language}&query=${keyWords}&page=1&${this.adult}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data)
+        return data.results;
+    }
 }
-setMoviesHTML = (movies) => {
-    return `<div class="movies__item" onclick="showMovie(${movies.id})">
+setMoviesHTML = (multimedia) => {
+    return `<div class="movies__item" onclick="showMovie(${multimedia.id})">
                 <div class="movies__poster" href="#">
-                    <img src="${imgMovieURL}/${movies.poster_path}" alt="" class="movies__img">
+                    <img src="${imgMultimediaURL}/${multimedia.poster_path}" alt="" class="movies__img">
                         <div class="movies__icon-play"></div>
                 </div>
-                <p class="movies__title">${movies.title}</p>
+                <p class="movies__title">${multimedia.title||multimedia.name}</p>
             </div>`
 }
-setGenreHTML = (genre) => {
-    return `<li class="movies-category__item" onclick="filterByGender(${genre.id}, '${genre.name}')">
+setSeriesHTML = (multimedia) => {
+    return `<div class="movies__item" onclick="showSerie(${multimedia.id})">
+                <div class="movies__poster" href="#">
+                    <img src="${imgMultimediaURL}/${multimedia.poster_path}" alt="" class="movies__img">
+                        <div class="movies__icon-play"></div>
+                </div>
+                <p class="movies__title">${multimedia.title||multimedia.name}</p>
+            </div>`
+}
+setGenreMoviesHTML = (genre) => {
+    return `<li class="movies-category__item" onclick="filterMoviesByGender(${genre.id}, '${genre.name}')">
+                <span class="movies-movies__icon">
+                    <div class="movies-category__icon"></div>
+                </span> ${genre.name}
+            </li>`
+}
+setGenreSeriesHTML = (genre) => {
+    return `<li class="movies-category__item" onclick="filterSeriesByGender(${genre.id}, '${genre.name}')">
                 <span class="movies-movies__icon">
                     <div class="movies-category__icon"></div>
                 </span> ${genre.name}
@@ -66,7 +100,7 @@ setMovieHTML = (movie) => {
     return `<table class="movie__item">
                 <tr>
                     <td class="movie__poster" rowspan="2">
-                        <img src="${imgMovieURL}/${movie.poster_path}" alt="" class="movie__img"><br>
+                        <img src="${imgMultimediaURL}/${movie.poster_path}" alt="" class="movie__img"><br>
                     </td>
                     <td class="movie__data">
                         <h1 class="movie__title">${movie.title}</h1>
@@ -89,55 +123,143 @@ setMovieHTML = (movie) => {
                 </tr>
             </table>`
 }
-const movies = new Movies();
-async function fillMoviesHTML(moviesData, title){
-    titleSection.innerHTML = setGenreTitleHTML(title);
-    moviesSection.innerHTML = "";
-    if ( !moviesSection.classList.contains("movies") ){
-        moviesSection.classList.add("movies");
-        moviesSection.classList.remove("movie");
-        moviesSection.style.backgroundImage = "";
+setSerieHTML = (serie) => {
+    return `<table class="movie__item">
+                <tr>
+                    <td class="movie__poster" rowspan="2">
+                        <img src="${imgMultimediaURL}/${serie.poster_path||""}" alt="" class="movie__img"><br>
+                    </td>
+                    <td class="movie__data">
+                        <h1 class="movie__title">${serie.name||""}</h1>
+                        <p class="movie__tagline">${serie.tagline||""}</p>
+                        <p class="movie__dataText">First air date: ${serie.first_air_date||""}</p>
+                        <p class="movie__dataText">Last episode to air: ${serie.last_episode_to_air||""}</p>
+                        <p class="movie__dataText">Type: ${serie.type||""}</p>
+                        <p class="movie__dataText">Status: ${serie.status||""}</p>
+                        <p class="movie__dataText">Number of episodes: ${serie.number_of_episodes||""}</p>
+                        <p class="movie__dataText">Number of seasons: ${serie.number_of_seasons||""}</p>
+                        <p class="movie__rating">Rating: ${serie.vote_average||""}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" class="movie__buttom" onclick="search()" value="Watch now">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="movie__sumary" colspan="2">
+                        <p class="movies__sumary-content">${serie.overview}</p>
+                    </td>
+                </tr>
+            </table>`
+}
+const multimedia = new Multimedia ();
+function getTypeMultimedia(key){
+    const MultimediaType = new Map([
+        ["movie", false],
+        ["serie", false]
+    ])
+    key.forEach(element => MultimediaType.set(element, true));
+    return MultimediaType;
+}
+function changeToGeneral(){
+    multimediaSection.innerHTML = null;
+    if ( !multimediaSection.classList.contains("movies") ){
+        multimediaSection.style.backgroundImage = null;
+        multimediaSection.classList.toggle("movie");
+        multimediaSection.classList.toggle("movies");
     }
-    moviesData.forEach(element => {
-        if(element.title){ 
-            moviesSection.innerHTML += setMoviesHTML(element);
-        }
+    titleSection.innerHTML = null;
+}
+async function fillMultimediaHTML(multimediaData, title, type){
+    changeToGeneral();
+    titleSection.innerHTML = setGenreTitleHTML(title);
+    multimediaData.forEach(element => {
+        if(type.get("movie") && element.title) 
+            multimediaSection.innerHTML += setMoviesHTML(element);
+        if(type.get("serie") && element.name)
+            multimediaSection.innerHTML += setSeriesHTML(element)
     });
 }
-async function fillGenreHTML() {
-    const genreData = await movies.getGenre().then(response => response);
-    genreData.forEach(element => {
-        genreSection.innerHTML += setGenreHTML(element)
-    });
+async function fillGenreHTML(genreData, type) {
+    genreSection.innerHTML = null;
+    if(genreData)
+        genreData.forEach(element => {
+            if(type.get("movie"))
+                genreSection.innerHTML += setGenreMoviesHTML(element)
+            if(type.get("serie"))
+                genreSection.innerHTML += setGenreSeriesHTML(element)
+        });
 }
-async function search() {
+async function searchAll() {
     const keyWords = document.getElementById("searchInput").value;
-    const moviesData = await movies.searchMovieByName(keyWords).then(response => response);
+    const moviesData = await multimedia.searchAllByName(keyWords).then(response => response);
     const title = "Search Results"
-    fillMoviesHTML(moviesData, title);
+    const type = getTypeMultimedia(["movie", "serie"]);
+    fillMultimediaHTML(moviesData, title, type);
+    fillGenreHTML([]);
 }
-async function filterByGender(idGender, nameGenre) {
-    const moviesData = await movies.getMoviesByGenre(idGender).then(response => response);
-    const title = `Genre: ${nameGenre}`;
-    fillMoviesHTML(moviesData, title);
+async function filterMoviesByGender(idGender, nameGenre) {
+    const moviesData = await multimedia.getMoviesByGenre(idGender).then(response => response);
+    const title = `Movies Genre: ${nameGenre}`;
+    const type = getTypeMultimedia(["movie"]);
+    fillMultimediaHTML(moviesData, title, type);
+}
+async function filterSeriesByGender(idGender, nameGenre) {
+    const seriesData = await multimedia.getSeriesByGenre(idGender).then(response => response);
+    const title = `Series Genre: ${nameGenre}`;
+    const type = getTypeMultimedia(["serie"]);
+    fillMultimediaHTML(seriesData, title, type);
+}
+function changeToSigle(){
+    multimediaSection.innerHTML = null;
+    if ( !multimediaSection.classList.contains("movie") ){
+        multimediaSection.classList.remove("movies");
+        multimediaSection.classList.add("movie");
+    }
+    titleSection.innerHTML = null;
 }
 async function showMovie(idMovie) {
-    moviesSection.innerHTML = "";
-    if ( !moviesSection.classList.contains("movie") ){
-        moviesSection.classList.add("movie");
-        moviesSection.classList.remove("movies");
+    changeToSigle();
+    const movieData = await multimedia.getMovieById(idMovie).then(response => response);
+    if(movieData){
+        multimediaSection.style.backgroundImage=`url(${imgMultimediaURL_original}/${movieData.backdrop_path})`;
+        multimediaSection.innerHTML = setMovieHTML(movieData);
+        const type = getTypeMultimedia(["movie"]);
+        const genreData = await multimedia.getGenreMovies().then(response => response);
+        fillGenreHTML(genreData, type)
     }
-    titleSection.innerHTML = "";
-    const movieData = await movies.getMovieById(idMovie).then(response => response);
-    moviesSection.style.backgroundImage=`url(${imgMovieURL_original}/${movieData.backdrop_path})`;
-    moviesSection.innerHTML = setMovieHTML(movieData);
+}
+async function showSerie(idSerie) {
+    changeToSigle();
+    const serieData = await multimedia.getSerieById(idSerie).then(response => response);
+    if(serieData){
+        multimediaSection.style.backgroundImage=`url(${imgMultimediaURL_original}/${serieData.backdrop_path})`;
+        console.log(serieData)
+        multimediaSection.innerHTML = setSerieHTML(serieData);
+        const type = getTypeMultimedia(["serie"]);
+        const genreData = await multimedia.getGenreSeries().then(response => response);
+        fillGenreHTML(genreData, type)
+    }
+}
+async function mainTVSeries(){
+    const moviesData = await multimedia.getTrendingMovies().then(response => response);
+    const genreData = await multimedia.getGenreSeries().then(response => response);
+    const title = "Trending Series";
+    const type = getTypeMultimedia(["serie"]);
+    fillMultimediaHTML(moviesData, title, type);
+    fillGenreHTML(genreData, type)
+
 }
 async function main() {
-    const moviesData = await movies.getTrendingMovies().then(response => response);
+    const genreData = await multimedia.getGenreMovies().then(response => response);
+    const moviesData = await multimedia.getTrendingMovies().then(response => response);
     const title = "Trending Movies";
-    fillMoviesHTML(moviesData, title);
-    fillGenreHTML()
+    type = getTypeMultimedia(["movie"]);
+    fillMultimediaHTML(moviesData, title, type);
+    fillGenreHTML(genreData, type)
 }
+
 main();
 
 //const movie = allMovies.find(element => element.id == idMovie)

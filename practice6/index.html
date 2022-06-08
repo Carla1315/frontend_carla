@@ -11,10 +11,14 @@
 <body>
     <header class="header">
         <h1 class="header__title">PelisPedia</h1>
+        <nav class="header__menu">
+                    <input type="button" class="menu__button" value="Movies" onclick="main()">
+                    <input type="button" class="menu__button" value="TV Series" onclick="mainTVSeries()">
+        </nav>
         <div class="search">
             <label for="search__input" class="search__label">Search </label>
             <input type="text" class="search__input" id="searchInput">
-            <div class="search__buttom" onclick="search()">
+            <div class="search__buttom" onclick="searchAll()">
                 <div class="search__icon"></div>
             </div>
         </div>
