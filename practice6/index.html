@@ -5,23 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
+    <link href='https://css.gg/tag.css' rel='stylesheet'>
     <title>Movies</title>
 </head>
 <body>
-    <header class="header">
-        <h1>PelisPedia</h1>
-        <div class="search">
-            <label for="search__input" class="search__label">Search</label>
-            <input type="text" class="search__input" id="searchInput">
-            <input type="button" class="search__buttom" onclick="search()" value="B">
-        </div>
-    </header>
-    <aside class="aside">
-        <ul class="movies-category" id="moviesCategory">
-        </ul>
-    </aside>
-    <section class="movies" id="movies">
-    </section>
+    <div class="container">
+        <header class="header">
+            <h1 class="header__title">PelisPedia</h1>
+            <div class="search">
+                <label for="search__input" class="search__label">Search </label>
+                <input type="text" class="search__input" id="searchInput">
+                <div class="search__buttom" onclick="search()">
+                    <div class="search__icon"></div>
+                </div>
+            </div>
+        </header>
+        <aside class="aside">
+            <ul class="movies-category" id="moviesCategory">
+            </ul>
+        </aside>
+        <section class="title" id="title"></section>
+        <section class="movies" id="movies">
+        </section>
+    </div>
     <script type="text/javascript" src="./scripts/movie.js"></script>
 </body>
 </html> 
