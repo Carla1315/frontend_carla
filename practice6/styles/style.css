@@ -25,7 +25,7 @@ body {
     float: left;
     overflow: hidden;
 }
-.menu__button {
+.header__menu__button {
     background-color: #141A32;
     border: none;
     color: white;
@@ -34,15 +34,15 @@ body {
     text-decoration: none;
     font-size: 17px;
 }
-.menu__button:hover {
+.header__menu__button:hover {
     transition: 1s;
     color: #080fac;
 }
-.search {
+.header__search {
     display: flex;
     align-items: center;
 }
-.search .search__buttom {
+.header__search__buttom {
     width: 15px;
     height: 15px;
     background-color: #141A32;
@@ -51,11 +51,11 @@ body {
     padding: 5px;
     margin: 5px;
 }
-.search .search__buttom:hover {
+.header__search__buttom:hover {
     transition: 1s;
     color: #080fac;
 }
-.search .search__icon {
+.header__search__icon {
     box-sizing: border-box;
     position: relative;
     display: block;
@@ -66,7 +66,7 @@ body {
     margin-left: -4px;
     margin-top: -4px
 }
-.search .search__icon::after {
+.header__search__icon::after {
     content: "";
     display: block;
     box-sizing: border-box;
@@ -170,7 +170,7 @@ body {
     height: 30px;
     background-color: aliceblue;
 }
-.movies .movies__item { 
+.movies__item { 
     margin: 10px;
     padding: 10px;
     font-size: 18px;
@@ -193,19 +193,19 @@ body {
     transition: 0.5s;
     animation: size-big 0.5s;
 }
-.movies .movies__poster {
+.movies__poster {
     height: 240px;
     text-decoration: none;
     color: white;
     display: inline-block;
     text-align: center;
 }
-.movies .movies__img { 
+.movies__img { 
     width: 80%;
     height: 250px;
     border-radius: 10px;
 }
-.movies .movies__icon-play {
+.movies__icon-play {
     visibility: hidden;
     position: absolute;
     bottom: 170px;
@@ -218,7 +218,7 @@ body {
     border: 5px solid;
     border-radius: 70px
 }
-.movies .movies__icon-play::before {
+.movies__icon-play::before {
     content: "";
     display: block;
     box-sizing: border-box;

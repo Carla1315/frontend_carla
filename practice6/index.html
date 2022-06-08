@@ -5,21 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
-    <link href='https://css.gg/tag.css' rel='stylesheet'>
     <title>Movies</title>
 </head>
 <body>
     <header class="header">
         <h1 class="header__title">PelisPedia</h1>
         <nav class="header__menu">
-                    <input type="button" class="menu__button" value="Movies" onclick="main()">
-                    <input type="button" class="menu__button" value="TV Series" onclick="mainTVSeries()">
+                    <input type="button" class="header__menu__button" value="Movies" onclick="main()">
+                    <input type="button" class="header__menu__button" value="TV Series" onclick="mainTVSeries()">
         </nav>
-        <div class="search">
-            <label for="search__input" class="search__label">Search </label>
-            <input type="text" class="search__input" id="searchInput">
-            <div class="search__buttom" onclick="searchAll()">
-                <div class="search__icon"></div>
+        <div class="header__search">
+            <label for="header__search__input" class="header__search__label">Search </label>
+            <input type="text" class="header__search__input" id="searchInput">
+            <div class="header__search__buttom" onclick="searchAll()">
+                <div class="header__search__icon"></div>
             </div>
         </div>
     </header>
