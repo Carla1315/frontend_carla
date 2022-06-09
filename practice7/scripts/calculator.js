@@ -70,6 +70,8 @@ function display(operation) {
         operation = '÷'
     if(operation == '*')
         operation = '×'
+    if(operation == 'Enter')
+        operation = '='
     response = calculator.operation(value, beforeValue, operation);
     if(!isNaN(operation) || operation == '.'){
         numberComplete += operation;
