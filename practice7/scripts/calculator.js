@@ -49,8 +49,6 @@ class Calculator {
             if(beforeValue.indexOf(element) != -1 && !beforeValue.includes('='))
                 findIndexSymbol = beforeValue.indexOf(element)
         });
-        console.log(findIndexSymbol)
-        console.log(beforeValue, beforeValue)
         beforeValue = findIndexSymbol != -1?
                       beforeValue.slice(0, findIndexSymbol+1) : 
                       beforeValue = "0+";
@@ -68,6 +66,10 @@ function display(operation) {
     let response = [];
     const value = bigScreen.value;
     const beforeValue = screen.value;
+    if(operation == '/')
+        operation = '÷'
+    if(operation == '*')
+        operation = '×'
     response = calculator.operation(value, beforeValue, operation);
     if(!isNaN(operation) || operation == '.'){
         numberComplete += operation;
@@ -90,4 +92,8 @@ function eraseAll() {
 }
 function changeSymbol() {
     bigScreen.value = `-${bigScreen.value}`;
+}
+bigScreen.addEventListener('keypress', keyboard);
+function keyboard(value) {
+    display(value.key);
 }
