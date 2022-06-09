@@ -1,0 +1,38 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.calculator {
+    width: 340px;
+    height: 350px;
+    display: inline-block;
+    border: 1px solid palevioletred;
+}
+.calculator__buttom, 
+.calculator__screen {
+    border: none;
+    outline: none;
+}
+.calculator__screen {
+    background-color:palevioletred;
+}
+.calculator__screen .calculator__screen--big{ 
+    width: 97%;
+    font-size: 40px;
+}
+.calculator__screen .calculator__screen--small{ 
+    color: darkslategrey;
+}
+.calculator__buttom {
+    width: 30px;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    background-color: #EEEEEE;
+    width: 80px;
+    color: black;
+}
+.calculator__buttom:active {
+    background-color: palevioletred;
+    color: #EEEEEE;
+}
